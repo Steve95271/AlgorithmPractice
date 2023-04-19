@@ -96,4 +96,13 @@ public class SinglyLinkedList2<E> {
         }
         return headElement;
     }
+
+    public void printElement(){
+        Node pointer = head;
+
+        while(pointer != null){
+            System.out.println(pointer.element);
+            pointer = pointer.next;
+        }
+    }
 }
