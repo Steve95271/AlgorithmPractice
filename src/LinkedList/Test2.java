@@ -2,7 +2,7 @@ package LinkedList;
 
 public class Test2 {
     public static void main(String[] args) {
-        SinglyLinkedList2 list = new SinglyLinkedList2<>();
+        DoublyLinkedList list = new DoublyLinkedList<>();
 
         list.addLast(1);
         list.addLast(2);
