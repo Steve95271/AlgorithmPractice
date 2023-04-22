@@ -37,6 +37,7 @@ public class PriorityQueue1<E extends Priority>{
             System.arraycopy(array, index + 1, array, index, size - 1 - index);
         }
         size--;
+        //array[size-1] = null; //Help GC
     }
 
     public boolean addElement(E e){
