@@ -42,10 +42,12 @@ public class QuickSort4 {
             if (arr[j] < pivot){
                 i++;    // increment index of smaller element
                 swap (arr, i, j);
+                System.out.println(Arrays.toString(arr));
             }
         }
 
         swap(arr, i+1, high);
+        System.out.println(Arrays.toString(arr));
         return (i + 1);
     }
 
@@ -68,7 +70,7 @@ public class QuickSort4 {
         int[] nums = {1, 5, 2, 7, 8, 3, 4};
         System.out.println(Arrays.toString(nums));
         quickSort(nums, 0, nums.length - 1);
-        System.out.println(Arrays.toString(nums));
+        //System.out.println(Arrays.toString(nums));
 
     }
 }
