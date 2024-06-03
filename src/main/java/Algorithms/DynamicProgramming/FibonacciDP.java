@@ -2,7 +2,7 @@ package Algorithms.DynamicProgramming;
 
 public class FibonacciDP {
     public static void main(String[] args) {
-        long result = fibonacci(100);
+        long result = fibonacci(2000);
 
         System.out.println(result);
     }
