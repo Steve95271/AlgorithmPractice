@@ -8,12 +8,9 @@ public class LeetCode203 {
     public static void main(String[] args) {
         ListNode listNode = new ListNode(1, new ListNode(2,new ListNode(6, new ListNode(3, new ListNode(4, new ListNode(5, new ListNode(6)))))));
 
-        removeElements2(listNode, 6);
+        removeElements(listNode, 6);
 
-        while (listNode != null) {
-            System.out.println(listNode.val);
-            listNode = listNode.next;
-        }
+        System.out.println(listNode);
     }
 
     public static ListNode removeElements(ListNode head, int val) {

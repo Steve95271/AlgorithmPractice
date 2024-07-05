@@ -1,20 +1,18 @@
 package Algorithms.Quicksort;
 
-import java.util.Random;
-
 /*
     这个版本是满老师讲解的
  */
-public class QuickSort7 {
+public class QuickSort_SingleSide {
 
-    private static void quickSort(int[] array, int left, int right) {
+    public static void sort(int[] array, int left, int right) {
         if (left >= right) {
             return;
         }
 
         int pivotIndex = partition(array, left, right);
-        quickSort(array, left, pivotIndex - 1);
-        quickSort(array, pivotIndex + 1, right);
+        sort(array, left, pivotIndex - 1);
+        sort(array, pivotIndex + 1, right);
     }
 
     private static int partition(int[] array, int left, int right) {
@@ -44,24 +42,6 @@ public class QuickSort7 {
         int temp = array[a];
         array[a] = array[b];
         array[b] = temp;
-    }
-
-    public static void main(String[] args) {
-        Random rnd = new Random();
-
-        int[] arr = new int[10000000];
-
-        for (int i = 0; i < arr.length; i++) {
-            int randomNum = rnd.nextInt(10000000);
-            arr[i] = randomNum;
-        }
-
-        long start = System.currentTimeMillis();
-        quickSort(arr, 0, arr.length-1);
-        long end = System.currentTimeMillis();
-
-        System.out.println(end - start);
-
     }
 
 }

@@ -33,4 +33,20 @@ public class ListNode {
             System.out.println("节点为空，添加失败");
         }
     }
+
+ /*   @Override
+    public String toString() {
+        ListNode pointer = this;
+        System.out.print("[");
+        while (pointer != null) {
+            if (pointer.next == null) {
+                System.out.print(pointer.val);
+            } else {
+                System.out.print(pointer.val + ", ");
+            }
+            pointer = pointer.next;
+        }
+        System.out.print("]");
+        return "";
+    }*/
 }

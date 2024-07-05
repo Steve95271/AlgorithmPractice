@@ -1,5 +1,6 @@
 package Exercise;
 
+import DataStructure.StackAndQueue.Queue;
 import DataStructure.StackAndQueue.Tree.TreeNode;
 
 import java.util.ArrayList;
@@ -41,6 +42,7 @@ public class LeetCode102_LevelOrderTraversal {
 
         List<List<Integer>> result = new ArrayList<>();
         LinkedList<TreeNode> queue = new LinkedList<>();
+
         queue.offer(root);
 
         //一开始只有一个节点

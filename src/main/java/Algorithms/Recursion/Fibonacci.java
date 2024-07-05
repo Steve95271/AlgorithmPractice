@@ -2,7 +2,7 @@ package Algorithms.Recursion;
 
 public class Fibonacci {
     public static void main(String[] args) {
-        System.out.println(fib2(2000000));
+        System.out.println(fib2(8));
     }
 
     public static int fib(int n){

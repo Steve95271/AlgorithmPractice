@@ -51,7 +51,7 @@ public class LeetCode295_FindMedianFromDataStream {
         if (left.size() == right.size()) { //数据是偶数个，求中间两个数的平均值
             return (left.peek() + right.peek()) / 2.0;
         } else {
-            return left.poll();
+            return left.peek();
         }
     }
 

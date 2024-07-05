@@ -16,8 +16,6 @@ public class QuickSort4 {
 
             quickSort(arr, pi + 1, high); // After pi
 
-            //System.out.println(Arrays.toString(arr));
-
         }
 
     }

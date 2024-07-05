@@ -2,6 +2,8 @@ package Exercise;
 
 import DataStructure.Heap.MinHeap;
 
+import java.util.PriorityQueue;
+
 public class LeetCode703_KthLargestElementInStream {
 
     /*
@@ -51,25 +53,36 @@ public class LeetCode703_KthLargestElementInStream {
           细节：新加入的元素如果比堆顶元素更小，应该忽略掉（因为我们需要的是第K大的元素）。
      */
 
-    private MinHeap heap;
+    private PriorityQueue<Integer> minHeap;
 
     public LeetCode703_KthLargestElementInStream(int k, int[] nums) {
-        //用 k 作为容量创建小顶堆
-        heap = new MinHeap(k);
-
-        for (int num : nums) {
-            add(num);
+        minHeap = new PriorityQueue<>(k);
+        System.out.println(k);
+        for (int i = 0; i < k; i++) {
+            minHeap.offer(nums[i]);
         }
+        System.out.println("Size: " + minHeap.size());
+        for (int i = k; i < nums.length; i++) {
+            minHeap.offer(nums[i]);
+        }
+        System.out.println("Size: " + minHeap.size());
+        System.out.println(minHeap);
     }
 
     public int add(int val) {
-        //防止传过来的是空数组，先把数组放满
-        if (!heap.isFull()) {
-            heap.offer(val);
-        } else if (heap.peek() < val){ //检查新添元素比堆顶元素要大时才加进去
-            heap.replace(val);
+        if (minHeap.peek() < val) {
+            minHeap.poll();
+            minHeap.offer(val);
         }
-        return heap.peek();
+
+        System.out.println(minHeap);
+        return minHeap.peek();
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {4, 5, 8, 2};
+
+        LeetCode703_KthLargestElementInStream leetCode703KthLargestElementInStream = new LeetCode703_KthLargestElementInStream(3, nums);
     }
 
 }

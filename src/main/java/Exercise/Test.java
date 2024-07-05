@@ -1,20 +1,6 @@
 package Exercise;
 
 public class Test {
-    public static void main(String[] args) {
-        A02_AddTwoNumbers addTwoNumbers = new A02_AddTwoNumbers();
-
-        ListNode l1 = new ListNode(2,
-                new ListNode(4,
-                        new ListNode(3, null)));
-
-        ListNode l2 = new ListNode(5,
-                new ListNode(6,
-                        new ListNode(4, null)));
-
-
-        addTwoNumbers.addTwoNumbers(l1, l2);
-    }
 }
 
 class Test2 {
