@@ -1,9 +1,9 @@
-package DataStructure.Graph;
+package DataStructure.Graph_Old_ver;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DijkstraWithPriorityQueue {
+public class Dijkstra {
     public void dijkstra(List<Vertex> graph, Vertex source){
         ArrayList<Vertex> vertexList = new ArrayList<>(graph);
 

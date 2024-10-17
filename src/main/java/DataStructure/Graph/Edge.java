@@ -1,15 +1,17 @@
 package DataStructure.Graph;
 
 public class Edge {
-    Vertex linkedVertex;
+
+    Vertex linked;
     int weight;
 
-    public Edge(Vertex linkedVertex) {
-        this(linkedVertex, 1);
+    public Edge(Vertex linked) {
+        this.linked = linked;
     }
 
-    public Edge(Vertex linkedVertex, int weight){
-        this.linkedVertex = linkedVertex;
+    public Edge(Vertex linked, int weight) {
+        this.linked = linked;
         this.weight = weight;
     }
+
 }
