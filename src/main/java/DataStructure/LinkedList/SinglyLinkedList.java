@@ -6,6 +6,7 @@ import java.util.function.Consumer;
 public class SinglyLinkedList implements Iterable<Integer> {//迭代器增强循环
 
     private Node head = null;
+    private Node tail = null;
 
     public SinglyLinkedList(){}
 

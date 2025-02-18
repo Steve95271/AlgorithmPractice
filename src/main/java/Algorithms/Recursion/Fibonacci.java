@@ -1,42 +1,22 @@
 package Algorithms.Recursion;
 
 public class Fibonacci {
+
     public static void main(String[] args) {
-        System.out.println(fib2(8));
+        System.out.println(fibonacci(8));
     }
 
-    public static int fib(int n){
-        if (n == 0 ){
-            return 0;
-        } else if (n == 1) {
-            return 1;
-        }
+    private static int fibonacci(int n) {
 
-        int x = fib(n - 1);
-        int y = fib(n - 2);
+        if (n == 0) return 0;
+        if (n == 1) return 1;
 
-        return x + y;
+        // 计算n-1项
+        int n1 = fibonacci(n - 1);
+        // 计算n-2项
+        int n2 = fibonacci(n - 2);
+
+        return n1 + n2;
     }
-
-    public static int fib2(int n) {
-        if (n == 0 ){
-            return 0;
-        } else if (n == 1) {
-            return 1;
-        }
-
-        int cont = 2;
-        int n0 = 0;
-        int n1 = 1;
-        int tempNTerm;
-        while (cont <= n) {
-            tempNTerm = n0 + n1;
-            n0 = n1;
-            n1 = tempNTerm;
-            cont++;
-        }
-        return n1;
-    }
-
 
 }

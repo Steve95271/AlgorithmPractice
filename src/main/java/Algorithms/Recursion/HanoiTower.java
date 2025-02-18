@@ -42,10 +42,11 @@ public class HanoiTower {
         }
 
     }
+
     public static void main(String[] args) {
-        init(25);
+        init(3);
         print();
-        move(25, source, intermediate, target);
+        move(source.size(), source, intermediate, target);
         print();
     }
 }

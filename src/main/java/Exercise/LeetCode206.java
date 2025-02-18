@@ -23,16 +23,6 @@ public class LeetCode206 {
         }
     }
 
-    public static void main(String[] args) {
-        ListNode list = new ListNode(1,
-                new ListNode(2,
-                        new ListNode(3,
-                                new ListNode(4,
-                                        new ListNode(5)))));
-
-        reverseListRecursion(list);
-    }
-
     public static ListNode reverseListSolutionOne(ListNode head) {
         ListNode reverseList = null;
 
@@ -93,5 +83,15 @@ public class LeetCode206 {
         // Avoid circular list
         node.next = null;
         return lastNode;
+    }
+
+    public static void main(String[] args) {
+        ListNode list = new ListNode(1,
+                new ListNode(2,
+                        new ListNode(3,
+                                new ListNode(4,
+                                        new ListNode(5)))));
+
+        reverseListRecursion(list);
     }
 }
