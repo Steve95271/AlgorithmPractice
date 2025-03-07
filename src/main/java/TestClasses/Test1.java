@@ -39,4 +39,12 @@ public class Test1 {
                 System.out.println(value);
             }
         }
+
+        @Test
+        void testCompareTo() {
+            String a = "BCDE";
+            String b = "ABCD";
+
+            System.out.println(a.compareTo(b));
+        }
 }

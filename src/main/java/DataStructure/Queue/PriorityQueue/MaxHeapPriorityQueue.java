@@ -15,7 +15,7 @@ public class MaxHeapPriorityQueue<E extends Priority> implements Queue<E> {
     public boolean offer(E value) {
         if (isFull()) return false;
 
-        int child = size++;
+        int child = size + 1;
         int parent = (child - 1) / 2;
         while (child > 0 && value.priority() > array[parent].priority()) {
             array[child] = array[parent];
@@ -32,7 +32,7 @@ public class MaxHeapPriorityQueue<E extends Priority> implements Queue<E> {
 
         swap(0, size - 1);
         E value = (E) array[size - 1];
-        array[size - 1] = null;
+        array[size - 1] = null; // help GC
         size--;
         shiftDown(0);
         return value;
@@ -46,11 +46,14 @@ public class MaxHeapPriorityQueue<E extends Priority> implements Queue<E> {
 
     private void shiftDown(int parent) {
         //左chile的索引
+        // Formula for calculate left chile
+        // 2 * parent + 1
         int left = 2 * parent + 1;
         //右child的索引
         int right = left + 1;
         int max = parent;
 
+        // left/right < size, means they have to in the range.
         if (left < size && array[left].priority() > array[max].priority()) {
             max = left;
         }
@@ -59,6 +62,7 @@ public class MaxHeapPriorityQueue<E extends Priority> implements Queue<E> {
             max = right;
         }
 
+        // Only there are element prior to parent, then this if condition is true
         if (max != parent) {
             swap(max, parent);
             //递归调用
