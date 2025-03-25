@@ -1,7 +1,6 @@
 package DataStructure.Heap;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 /**
  * 大顶堆实现

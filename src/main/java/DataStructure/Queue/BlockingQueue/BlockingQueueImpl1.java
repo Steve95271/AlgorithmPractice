@@ -5,6 +5,10 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ * 单锁实现的阻塞队列
+ * @param <E>
+ */
 public class BlockingQueueImpl1<E> implements BlockingQueue<E>{
 
     private final E[] array;
@@ -41,8 +45,10 @@ public class BlockingQueueImpl1<E> implements BlockingQueue<E>{
                 //如果数组为满，则让此线程进入等待
                 tailWaits.await();
             }
+
             array[tail] = e;
-            //tail先加一然后在做判断，如果索引已经到达数组的最后一位需要把tail索引重制为0
+
+            //tail先加一然后再做判断，如果索引已经到达数组的最后一位需要把tail索引重制为0
             //这样做是为了防止索引超出范围
             if (++tail == array.length) {
                 tail = 0;
