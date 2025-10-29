@@ -11,7 +11,7 @@ public class BinarySearch2 {
         int max = arr.length;
 
         while(max - min > 1){
-            //Binary right move operation
+            //Binary right shift operation
             //Is for divide the number 2 but would not get the negative number in Java
             int mid = (min + max) >>> 1;
 

@@ -27,7 +27,7 @@ public class BinarySearch03 {
 
             if (target < arr[middlePointer]) { // 目标小于中间值，说明目标在中间值的左边
                 rightPointer = middlePointer - 1; // 右边指针移动到中间指针并缩小右边的范围
-            } else if (target > arr[middlePointer]) { // 目标大于中间值，目标在中间指针的右边
+            } else if (arr[middlePointer] < target) { // 目标大于中间值，目标在中间指针的右边
                 leftPointer = middlePointer + 1; // 左边指针移动到中间指针并缩小左边的范围
             } else { //当目标即不小于也不大于中指针指向的值时，目标找到
                 return middlePointer; //返回中指针索引
