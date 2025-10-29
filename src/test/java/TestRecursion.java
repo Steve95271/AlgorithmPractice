@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.Random;
 
 public class TestRecursion {
 
@@ -54,6 +55,26 @@ public class TestRecursion {
 
         RecursionBubbleSort.sort(array);
         System.out.println(Arrays.toString(array));
+    }
+
+    @Test
+    void testRecursionInsertion() {
+        // Create random number array
+        Random rnd = new Random();
+        int[] arr = new int[10];
+        for (int i = 0; i < arr.length; i++) {
+            int randomNum = rnd.nextInt(100);
+            arr[i] = randomNum;
+        }
+
+        // Check before sort
+        System.out.println("before sort: " + Arrays.toString(arr));
+
+        // Sorting
+        RecursionInsertionSort.sort(arr);
+
+        // Check after sort
+        System.out.println("after sort: " + Arrays.toString(arr));
     }
 
 }
