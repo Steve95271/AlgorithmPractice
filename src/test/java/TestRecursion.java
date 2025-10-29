@@ -1,9 +1,8 @@
-import Algorithms.Recursion.Fibonacci;
-import Algorithms.Recursion.FibonacciMemoization;
-import Algorithms.Recursion.RecursionBinarySearch;
-import Algorithms.Recursion.ReverseStringPrinting;
+import Algorithms.Recursion.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
 
 public class TestRecursion {
 
@@ -47,6 +46,14 @@ public class TestRecursion {
         Assertions.assertEquals(4, RecursionBinarySearch.search(array, 41));
         Assertions.assertEquals(7, RecursionBinarySearch.search(array, 121));
         Assertions.assertEquals(-1, RecursionBinarySearch.search(array, 3));
+    }
+
+    @Test
+    void testRecursionBubbleSort() {
+        int[] array = {9, 8, 7, 6, 5, 4, 3, 2, 1};
+
+        RecursionBubbleSort.sort(array);
+        System.out.println(Arrays.toString(array));
     }
 
 }
