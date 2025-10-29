@@ -2,17 +2,23 @@ package Algorithms.Recursion;
 
 public class ReverseStringPrinting {
 
-    private static void recursion(int n, String str) {
-        if (n == str.length()) {
-            return;
-        }
-        recursion(n + 1, str);
-        System.out.println(str.charAt(n));
+    public static void print(String string) {
+
+        print(string, 0);
+
     }
 
-    public static void main(String[] args) {
-        String str = "ABCD";
-        recursion(0, str);
+    private static void print(String string, int n) {
+
+        if (n == string.length()) {
+            return;
+        }
+
+        print(string, n + 1);
+
+        // after
+        System.out.print(string.charAt(n) + " ");
+
     }
 
 }
