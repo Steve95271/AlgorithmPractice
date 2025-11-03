@@ -5,24 +5,6 @@ import java.util.Random;
 
 public class RecursionInsertionSort {
 
-    public static void main(String[] args) {
-        Random rnd = new Random();
-
-        int[] arr = new int[10];
-
-        for (int i = 0; i < arr.length; i++) {
-            int randomNum = rnd.nextInt(100);
-
-            arr[i] = randomNum;
-        }
-
-        System.out.println(Arrays.toString(arr));
-
-        insertSort(arr, 1);
-
-        System.out.println(Arrays.toString(arr));
-    }
-
     public static void sort(int[] arr) {
         insertSort(arr, 1);
     }

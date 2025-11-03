@@ -14,7 +14,8 @@ public class RecursionBinarySearch {
             return -1;
         }
 
-        int mid = (left + right) >>> 1; // unsigned right shift operation
+        // unsigned right shift operation, same as divide by two, but more efficient
+        int mid = (left + right) >>> 1;
         if (target < array[mid]) {
             return recursionSearch(array, target, left, mid - 1);
         } else if (target > array[mid]) {

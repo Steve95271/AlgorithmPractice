@@ -7,9 +7,9 @@ import java.util.LinkedList;
  * 时间复杂度为O(2^n)，指数级的时间复杂度
  */
 public class HanoiTower {
-    static LinkedList<Integer> source = new LinkedList<>();
-    static LinkedList<Integer> intermediate = new LinkedList<>();
-    static LinkedList<Integer> target = new LinkedList<>();
+    private static final LinkedList<Integer> source = new LinkedList<>();
+    private static final LinkedList<Integer> intermediate = new LinkedList<>();
+    private static final LinkedList<Integer> target = new LinkedList<>();
 
     static void move(int n, LinkedList<Integer> source, LinkedList<Integer> intermediate, LinkedList<Integer> target) {
         if (n == 0) {
@@ -22,7 +22,7 @@ public class HanoiTower {
         //当n等于1时，也就是只剩下一个圆盘时，只需要把它从原来的位置移动到目标位置
         //这一步是中间的步骤
         target.addLast(source.removeLast());
-        print();
+//        print();
 
         //最后一步，在中间的盘子借助源柱子移动到目标柱子
         move(n - 1, intermediate, source, target);
@@ -44,9 +44,12 @@ public class HanoiTower {
     }
 
     public static void main(String[] args) {
-        init(3);
+        init(25);
         print();
+        long start = System.currentTimeMillis();
         move(source.size(), source, intermediate, target);
+        long end = System.currentTimeMillis();
         print();
+        System.out.println("Time consume: " + (end - start) + " ms");
     }
 }
