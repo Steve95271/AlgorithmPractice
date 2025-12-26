@@ -97,12 +97,13 @@ public class MaxHeap {
             if (element > array[parent]) { // 如果新增元素的值大于父节点的值就要交换位置
                 // 把较大的换上去
                 array[child] = array[parent];
-            } else { //如果新增元素的值没有比它的父节点的值大，则推出循环
+            } else { //如果新增元素的值没有比它的父节点的值大，则退出循环
                 break;
             }
+            // 每轮循环最后，更新child索引值
             child = parent;
         }
-
+        // 退出循环后，child索引值指向的位置就是新元素应该要插入的位置
         array[child] = element;
     }
 
