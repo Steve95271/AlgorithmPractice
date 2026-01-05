@@ -63,4 +63,70 @@ public class LeetCode98_ValidateBST {
 
     }
 
+    public static void main(String[] args) {
+        // Test Case 1: Valid BST - Standard balanced tree
+        //       2
+        //      / \
+        //     1   3
+        TreeNode test1 = new TreeNode(2,
+                new TreeNode(1),
+                new TreeNode(3));
+        LeetCode98_ValidateBST solution1 = new LeetCode98_ValidateBST();
+        System.out.println("Test 1 - Valid BST (balanced): " + solution1.isValidBST(test1)); // Expected: true
+
+        // Test Case 2: Invalid BST - Right child violation
+        //       5
+        //      / \
+        //     1   4
+        //        / \
+        //       3   6
+        TreeNode test2 = new TreeNode(5,
+                new TreeNode(1),
+                new TreeNode(4,
+                        new TreeNode(3),
+                        new TreeNode(6)));
+        LeetCode98_ValidateBST solution2 = new LeetCode98_ValidateBST();
+        System.out.println("Test 2 - Invalid BST (right child < root): " + solution2.isValidBST(test2)); // Expected: false
+
+        // Test Case 3: Valid BST - Left-skewed tree
+        //       5
+        //      /
+        //     3
+        //    /
+        //   1
+        TreeNode test3 = new TreeNode(5,
+                new TreeNode(3,
+                        new TreeNode(1),
+                        null),
+                null);
+        LeetCode98_ValidateBST solution3 = new LeetCode98_ValidateBST();
+        System.out.println("Test 3 - Valid BST (left-skewed): " + solution3.isValidBST(test3)); // Expected: true
+
+        // Test Case 4: Invalid BST - Duplicate values
+        //       2
+        //      / \
+        //     2   3
+        TreeNode test4 = new TreeNode(2,
+                new TreeNode(2),
+                new TreeNode(3));
+        LeetCode98_ValidateBST solution4 = new LeetCode98_ValidateBST();
+        System.out.println("Test 4 - Invalid BST (duplicate values): " + solution4.isValidBST(test4)); // Expected: false
+
+        // Test Case 5: Valid BST - Larger tree with negative values
+        //         10
+        //        /  \
+        //      -5    15
+        //     /  \     \
+        //   -10   0    20
+        TreeNode test5 = new TreeNode(10,
+                new TreeNode(-5,
+                        new TreeNode(-10),
+                        new TreeNode(0)),
+                new TreeNode(15,
+                        null,
+                        new TreeNode(20)));
+        LeetCode98_ValidateBST solution5 = new LeetCode98_ValidateBST();
+        System.out.println("Test 5 - Valid BST (with negative values): " + solution5.isValidBST(test5)); // Expected: true
+    }
+
 }
