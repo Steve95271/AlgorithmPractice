@@ -38,18 +38,14 @@ public class LeetCode206 {
     }
 
     public static ListNode reverseListSolutionTwo(ListNode head) {
-        List originalList = new List(head);
-        List reveredList = new List(null);
+        ListNode revert = null;
 
-        while (true) {
-            ListNode first = originalList.removeFirst();
-            if (first == null) {
-                break;
-            }
-            reveredList.addFirst(first);
+        while (head != null) {
+            revert = new ListNode(head.val, revert);
+            head = head.next;
         }
 
-        return reveredList.head;
+        return revert;
     }
 
     public static ListNode reverseListSolutionThree(ListNode head) {
@@ -72,17 +68,18 @@ public class LeetCode206 {
     }
 
     public static ListNode reverseListRecursion(ListNode node) {
-        if (node.next == null) {
+        if (node == null || node.next == null) {
+            // return last node
             return node;
         }
 
-        ListNode lastNode = reverseListRecursion(node.next);
-        // reverse node
+        ListNode last = reverseListRecursion(node.next);
+        // revert the next node
         node.next.next = node;
-        // set current node's next pointer to null
-        // Avoid circular list
+        // set current node.next to null avoid circular pointer
         node.next = null;
-        return lastNode;
+
+        return last;
     }
 
     public static void main(String[] args) {
@@ -92,6 +89,8 @@ public class LeetCode206 {
                                 new ListNode(4,
                                         new ListNode(5)))));
 
-        reverseListRecursion(list);
+//        reverseListSolutionTwo(list);
+        ListNode listNode = reverseListRecursion(list);
+        System.out.println(listNode.val);
     }
 }

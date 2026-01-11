@@ -17,8 +17,8 @@ public class MergeSort {
     }
 
     private void split(int[] a1, int left, int right, int[] a2) {
-        int[] tempArr = Arrays.copyOfRange(a1, left, right + 1);
-        System.out.println(Arrays.toString(tempArr));
+//        int[] tempArr = Arrays.copyOfRange(a1, left, right + 1);
+//        System.out.println(Arrays.toString(tempArr));
         // 治
         if (left == right) {
             return;
@@ -75,6 +75,7 @@ public class MergeSort {
     private void merge2(int[] a1, int i, int iEnd, int j, int jEnd, int[] a2) {
         int k = i;
         while (i <= iEnd && j <= jEnd) {
+            // System.out.println(Arrays.toString(a2));
             if (a1[i] < a1[j]) {
                 a2[k] = a1[i];
                 k++;
@@ -86,6 +87,9 @@ public class MergeSort {
             }
         }
 
+//        System.out.println("Left half: " + Arrays.toString(Arrays.copyOfRange(a1, i, iEnd + 1)));
+//        System.out.println("Right half: " + Arrays.toString(Arrays.copyOfRange(a1, j, jEnd + 1)));
+
         if (i > iEnd) {
             System.arraycopy(a1, j, a2, k, jEnd - j + 1);
         }
@@ -93,6 +97,6 @@ public class MergeSort {
             System.arraycopy(a1, i, a2, k, iEnd - i + 1);
         }
 
-        System.out.println("merge: " + Arrays.toString(a2));
+        // System.out.println("merge: " + Arrays.toString(a2));
     }
 }
