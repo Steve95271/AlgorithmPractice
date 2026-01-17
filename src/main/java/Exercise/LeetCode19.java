@@ -45,7 +45,7 @@ public class LeetCode19 {
         此时则需要知道一个节点的下一个节点是倒数第几个节点，
         这样当需要删除的节点是倒数第3个节点c时，节点b的next重新指向到节点d就相当于在链表中删除了节点c。
      */
-    private static int recursion (ListNode pointer, int n) {
+    private static int recursion(ListNode pointer, int n) {
         if (pointer == null) return 0;
         //nth是下一个倒数节点
         int nth = recursion(pointer.next, n);
@@ -79,7 +79,14 @@ public class LeetCode19 {
     }
 
     public static void main(String[] args) {
-        ListNode listNode = new ListNode(1, new ListNode(2,new ListNode(6, new ListNode(3, new ListNode(4, new ListNode(5, new ListNode(6, null)))))));
+        ListNode listNode = new ListNode(
+                1, new ListNode(
+                2, new ListNode(
+                6, new ListNode(
+                3, new ListNode(
+                4, new ListNode(
+                5, new ListNode(
+                6, null)))))));
 
         recursion(listNode, 5);
     }

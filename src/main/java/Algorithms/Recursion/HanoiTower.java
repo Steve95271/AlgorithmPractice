@@ -44,7 +44,7 @@ public class HanoiTower {
     }
 
     public static void main(String[] args) {
-        init(25);
+        init(32);
         print();
         long start = System.currentTimeMillis();
         move(source.size(), source, intermediate, target);
