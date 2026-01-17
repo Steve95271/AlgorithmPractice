@@ -2,8 +2,8 @@ package DataStructure.Graph;
 
 public class Edge {
 
-    Vertex linked;
-    int weight;
+    private Vertex linked;
+    private int weight;
 
     public Edge(Vertex linked) {
         this.linked = linked;
@@ -12,6 +12,14 @@ public class Edge {
     public Edge(Vertex linked, int weight) {
         this.linked = linked;
         this.weight = weight;
+    }
+
+    public Vertex getLinkedVertex() {
+        return linked;
+    }
+
+    public int getWeight() {
+        return weight;
     }
 
 }
