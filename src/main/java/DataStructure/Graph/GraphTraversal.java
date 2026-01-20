@@ -50,21 +50,25 @@ public class GraphTraversal {
     }
 
     private static void dfs(Vertex v) {
-        System.out.println("Vertex: " + v.getName());
+        // 打印当前顶点
+        System.out.println(v.getName());
+        // 标记当前顶点已访问
         v.setVisited();
+        // 获取当前顶点链接的边
         List<Edge> edges = v.getEdges();
-
+        // 检查是变的集合否为空
         if (edges == null || edges.isEmpty()) {
             return;
         }
 
-
+        // 遍历当前顶点的所有边
         for (Edge edge : edges) {
             Vertex linkedVertex = edge.getLinkedVertex();
             if (!linkedVertex.isVisited()) {
                 dfs(linkedVertex);
             }
         }
+
     }
 
     private static void bfs(Vertex v) {
