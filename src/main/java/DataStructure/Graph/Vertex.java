@@ -43,4 +43,12 @@ public class Vertex {
         this.distance = distance;
     }
 
+    @Override
+    public String toString() {
+        return "{" +
+                "vertex='" + name + '\'' +
+                ", distance=" + distance +
+                ", prev =" + (prev != null ? prev.name : "null") +
+                '}';
+    }
 }

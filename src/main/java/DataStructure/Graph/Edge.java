@@ -22,4 +22,11 @@ public class Edge {
         return weight;
     }
 
+    @Override
+    public String toString() {
+        return "Edge{" +
+                "linked=" + linked +
+                ", weight=" + weight +
+                '}';
+    }
 }
