@@ -32,6 +32,17 @@ public class DijkstraAlgorithm {
         );
     }
 
+    /*
+    * 迪克斯特拉单源最短路径算法
+    *   - 选择一个当前距离最短的顶点
+    *   - 遍历当前顶点的所有边
+    *   - 用当前顶点的距离加上边的权重（距离），如果小于此边链接顶点的距离则更新链接顶点的距离
+    *   - 重复以上步骤直到所有顶点都处理完成
+    *       - 一个顶点在遍历完它的所有边并处理好它和链接的顶点的距离后算处理完成
+    *
+    * NOTICE: 迪克斯特拉算法无法处理有负边的情况，所有边的权重都需要大于或等于零
+    * */
+
     private static void dijkstra(Vertex source) {
         PriorityQueue<Vertex> minHeap = new PriorityQueue<>(Comparator.comparingInt(Vertex::getDistance));
         source.setDistance(0);
