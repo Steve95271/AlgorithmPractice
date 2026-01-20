@@ -1,7 +1,9 @@
 package DataStructure.Graph;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.PriorityQueue;
 
 public class DijkstraAlgorithm {
 
@@ -21,7 +23,7 @@ public class DijkstraAlgorithm {
 
         List<Vertex> graph = List.of(v1, v2, v3, v4, v5, v6);
 
-        dijkstra(graph, v1);
+        dijkstra(v1);
 
         graph.forEach(g ->
                 System.out.println(
@@ -30,51 +32,37 @@ public class DijkstraAlgorithm {
         );
     }
 
-    private static void dijkstra(List<Vertex> graph, Vertex source) {
-        List<Vertex> list = new ArrayList<>(graph);
-        // Set source distance to zero
+    private static void dijkstra(Vertex source) {
+        PriorityQueue<Vertex> minHeap = new PriorityQueue<>(Comparator.comparingInt(Vertex::getDistance));
         source.setDistance(0);
+        minHeap.add(source);
 
-        while (!list.isEmpty()) {
+        while (!minHeap.isEmpty()) {
+            System.out.println(minHeap);
             // Choose the vertex which has the smallest distance
-            Vertex currentVertex = chooseMinDis(list);
-            // Update the current vertex's neighbours distance
-            updateNeighboursDistance(currentVertex);
-            // Set current visited after updated all the neighbours
+            Vertex currentVertex = minHeap.poll();
+            // Skip if already visited
+            if (currentVertex.isVisited()) continue;
+            // Set visited
             currentVertex.setVisited();
-            // Remove the current vertex from the list
-            list.remove(currentVertex);
-        }
-    }
 
-    private static void updateNeighboursDistance(Vertex currentVertex) {
-        List<Edge> adjacentEdges = currentVertex.getEdges();
-        adjacentEdges.forEach(e -> {
-            // Get current edge's linked vertex
-            Vertex linkedVertex = e.getLinkedVertex();
-            // Update distance only not yet visit
-            if (!linkedVertex.isVisited()) {
-                int dist = currentVertex.getDistance() +  e.getWeight();
-                // Only update distance when shorter
-                if (dist < linkedVertex.getDistance()) {
-                    linkedVertex.setDistance(dist);
-                    linkedVertex.prev = currentVertex;
+            // Update the current vertex's neighbours distance
+            currentVertex.getEdges().forEach(e -> {
+                // Get current edge's linked vertex
+                Vertex linkedVertex = e.getLinkedVertex();
+                // Update distance only not yet visited
+                if (!linkedVertex.isVisited()) {
+                    int dist = currentVertex.getDistance() +  e.getWeight();
+                    // Only update distance when shorter
+                    if (dist < linkedVertex.getDistance()) {
+                        linkedVertex.setDistance(dist);
+                        linkedVertex.prev = currentVertex;
+                        minHeap.add(linkedVertex);
+                    }
                 }
-            }
-        });
-    }
+            });
 
-    private static Vertex chooseMinDis(List<Vertex> graph) {
-        Vertex closestVertex = graph.get(0);
-        int minDis = closestVertex.getDistance();
-        for (Vertex vertex : graph) {
-            if (vertex.getDistance() < minDis) {
-                minDis = vertex.getDistance();
-                closestVertex = vertex;
-            }
         }
-        return closestVertex;
     }
-
 
 }
