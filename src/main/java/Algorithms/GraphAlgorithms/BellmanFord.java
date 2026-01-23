@@ -1,4 +1,4 @@
-package DataStructure.Graph;
+package Algorithms.GraphAlgorithms;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ public class BellmanFord {
         Vertex v4 = new Vertex("V4");
 
         v1.addEdge(List.of(new Edge(v2, 2), new Edge(v3, 1)));
-        v2.addEdge(List.of(new Edge(v3, -4)));
+        v2.addEdge(List.of(new Edge(v3, -2)));
         v3.addEdge(List.of(new Edge(v1, 1), new Edge(v4, 1)));
 
         List<Vertex> graph = List.of(v1, v2, v3, v4);

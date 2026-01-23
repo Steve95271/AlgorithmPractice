@@ -1,4 +1,4 @@
-package DataStructure.Graph;
+package Algorithms.GraphAlgorithms;
 
 public class Edge {
 

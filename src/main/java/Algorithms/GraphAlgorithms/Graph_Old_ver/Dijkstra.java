@@ -1,4 +1,4 @@
-package DataStructure.Graph_Old_ver;
+package Algorithms.GraphAlgorithms.Graph_Old_ver;
 
 import java.util.ArrayList;
 import java.util.List;

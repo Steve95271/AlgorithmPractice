@@ -1,5 +1,5 @@
-import DataStructure.Graph.Edge;
-import DataStructure.Graph.Vertex;
+import Algorithms.GraphAlgorithms.Edge;
+import Algorithms.GraphAlgorithms.Vertex;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -13,10 +13,10 @@ public class TestGraph {
         Vertex c = new Vertex("C");
         Vertex d = new Vertex("D");
 
-        a.edges = List.of(new Edge(b), new Edge(c));
-        b.edges = List.of(new Edge(d));
-        c.edges = List.of(new Edge(d));
-        d.edges = List.of();
+        a.addEdge(List.of(new Edge(b), new Edge(c)));
+        b.addEdge(List.of(new Edge(d)));
+        c.addEdge(List.of(new Edge(d)));
+        d.addEdge(List.of());
     }
 
 }

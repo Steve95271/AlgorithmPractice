@@ -1,7 +1,8 @@
-package DataStructure.Graph;
+package Algorithms.GraphAlgorithms;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Vertex {
 
@@ -50,5 +51,17 @@ public class Vertex {
                 ", distance=" + distance +
                 ", prev =" + (prev != null ? prev.name : "null") +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Vertex vertex = (Vertex) o;
+        return Objects.equals(name, vertex.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(name);
     }
 }

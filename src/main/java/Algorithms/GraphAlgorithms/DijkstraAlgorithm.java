@@ -1,6 +1,5 @@
-package DataStructure.Graph;
+package Algorithms.GraphAlgorithms;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
@@ -49,7 +48,7 @@ public class DijkstraAlgorithm {
         minHeap.add(source);
 
         while (!minHeap.isEmpty()) {
-            System.out.println(minHeap);
+            System.out.println("Min heap: " + minHeap);
             // Choose the vertex which has the smallest distance
             Vertex currentVertex = minHeap.poll();
             // Skip if already visited
